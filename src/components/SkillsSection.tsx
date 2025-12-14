@@ -9,81 +9,25 @@ import {
   Wrench,
   Layers
 } from "lucide-react";
+import { skills } from "@/data/portfolio";
 
-const skillCategories = [
-  {
-    title: "Frontend Development",
-    icon: Code2,
-    color: "from-blue-500 to-cyan-500",
-    skills: [
-      { name: "HTML5 & CSS3", level: 95 },
-      { name: "JavaScript (ES6+)", level: 90 },
-      { name: "React & Next.js", level: 88 },
-      { name: "Tailwind CSS", level: 92 },
-      { name: "TypeScript", level: 85 },
-    ],
-  },
-  {
-    title: "Backend & APIs",
-    icon: Server,
-    color: "from-purple-500 to-pink-500",
-    skills: [
-      { name: "REST APIs", level: 88 },
-      { name: "Node.js", level: 82 },
-      { name: "Authentication", level: 85 },
-      { name: "API Integration", level: 90 },
-      { name: "Formspree", level: 95 },
-    ],
-  },
-  {
-    title: "Data Analysis",
-    icon: BarChart3,
-    color: "from-green-500 to-emerald-500",
-    skills: [
-      { name: "Python", level: 88 },
-      { name: "Pandas & NumPy", level: 85 },
-      { name: "Data Visualization", level: 90 },
-      { name: "SQL Queries", level: 87 },
-      { name: "Power BI / Tableau", level: 80 },
-    ],
-  },
-  {
-    title: "Databases",
-    icon: Database,
-    color: "from-orange-500 to-red-500",
-    skills: [
-      { name: "PostgreSQL", level: 85 },
-      { name: "MySQL", level: 88 },
-      { name: "MongoDB", level: 80 },
-      { name: "SQLite", level: 90 },
-      { name: "Database Design", level: 82 },
-    ],
-  },
-  {
-    title: "Tools & DevOps",
-    icon: Wrench,
-    color: "from-teal-500 to-cyan-500",
-    skills: [
-      { name: "Git & GitHub", level: 92 },
-      { name: "VS Code", level: 95 },
-      { name: "Vercel Deployment", level: 90 },
-      { name: "CI/CD Basics", level: 78 },
-      { name: "Docker", level: 70 },
-    ],
-  },
-  {
-    title: "Additional Skills",
-    icon: Layers,
-    color: "from-indigo-500 to-purple-500",
-    skills: [
-      { name: "Responsive Design", level: 95 },
-      { name: "UI/UX Principles", level: 85 },
-      { name: "Performance Optimization", level: 82 },
-      { name: "SEO Best Practices", level: 80 },
-      { name: "Agile/Scrum", level: 85 },
-    ],
-  },
-];
+const iconMap = {
+  frontend: Code2,
+  backend: Server,
+  dataAnalysis: BarChart3,
+  databases: Database,
+  tools: Wrench,
+  additional: Layers,
+};
+
+const colorMap = {
+  frontend: "from-blue-500 to-cyan-500",
+  backend: "from-purple-500 to-pink-500",
+  dataAnalysis: "from-green-500 to-emerald-500",
+  databases: "from-orange-500 to-red-500",
+  tools: "from-teal-500 to-cyan-500",
+  additional: "from-indigo-500 to-purple-500",
+};
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
   const ref = useRef(null);
@@ -111,6 +55,14 @@ export function SkillsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const skillCategories = Object.entries(skills).map(([key, category]) => ({
+    key,
+    title: category.title,
+    icon: iconMap[key as keyof typeof iconMap],
+    color: colorMap[key as keyof typeof colorMap],
+    skills: category.skills,
+  }));
+
   return (
     <section id="skills" className="section-padding">
       <div className="container-custom">
@@ -133,7 +85,7 @@ export function SkillsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
-              key={category.title}
+              key={category.key}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}

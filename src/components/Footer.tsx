@@ -1,22 +1,25 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, MessageCircle } from "lucide-react";
+import { personalInfo, contactInfo } from "@/data/portfolio";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
+  { name: "Certifications", href: "#certifications" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
 
-const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:hello@alexchen.dev", label: "Email" },
-];
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    { icon: Github, href: contactInfo.github, label: "GitHub" },
+    { icon: Linkedin, href: contactInfo.linkedin, label: "LinkedIn" },
+    { icon: Mail, href: `mailto:${contactInfo.email}`, label: "Email" },
+    ...(contactInfo.whatsapp ? [{ icon: MessageCircle, href: `https://wa.me/${contactInfo.whatsapp}`, label: "WhatsApp" }] : []),
+  ];
 
   return (
     <footer className="bg-secondary/30 border-t border-border">
@@ -26,11 +29,11 @@ export function Footer() {
           <div>
             <a href="#home" className="font-display text-xl font-bold text-foreground mb-4 inline-block">
               <span className="text-primary">&lt;</span>
-              Dev
+              {personalInfo.name.split(" ")[0]}
               <span className="text-primary">/&gt;</span>
             </a>
             <p className="text-muted-foreground text-sm max-w-xs">
-              Full-stack developer and data analyst passionate about building beautiful, functional digital experiences.
+              {personalInfo.title} passionate about building beautiful, functional digital experiences.
             </p>
           </div>
 
@@ -75,11 +78,11 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} Alex Chen. Made with{" "}
+            © {currentYear} {personalInfo.name}. Made with{" "}
             <Heart className="h-3.5 w-3.5 text-red-500 fill-current" /> using React
           </p>
           <p className="text-sm text-muted-foreground">
-            Designed & Built by Alex Chen
+            Designed & Built by {personalInfo.name}
           </p>
         </div>
       </div>

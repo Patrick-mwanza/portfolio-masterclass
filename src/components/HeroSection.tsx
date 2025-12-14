@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { personalInfo, contactInfo } from "@/data/portfolio";
 
 export function HeroSection() {
+  const socialLinks = [
+    { icon: Github, href: contactInfo.github, label: "GitHub" },
+    { icon: Linkedin, href: contactInfo.linkedin, label: "LinkedIn" },
+    { icon: Mail, href: `mailto:${contactInfo.email}`, label: "Email" },
+    ...(contactInfo.whatsapp ? [{ icon: MessageCircle, href: `https://wa.me/${contactInfo.whatsapp}`, label: "WhatsApp" }] : []),
+  ];
+
   return (
     <section
       id="home"
@@ -15,23 +23,25 @@ export function HeroSection() {
       </div>
 
       {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--foreground)/0.03)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--foreground)/0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Status Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <span className="text-sm font-medium text-primary">Available for opportunities</span>
-          </motion.div>
+          {personalInfo.openToWork && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="text-sm font-medium text-primary">Available for opportunities</span>
+            </motion.div>
+          )}
 
           {/* Main Heading */}
           <motion.h1
@@ -43,7 +53,7 @@ export function HeroSection() {
             Hi, I'm{" "}
             <span className="relative">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Alex Chen
+                {personalInfo.name}
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -61,7 +71,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-4"
           >
-            Full-Stack Developer & Data Analyst
+            {personalInfo.title}
           </motion.p>
 
           {/* Description */}
@@ -71,8 +81,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            Crafting beautiful, performant web experiences and turning data into actionable insights.
-            Passionate about clean code, modern design, and data-driven solutions.
+            {personalInfo.tagline}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -107,11 +116,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex items-center justify-center gap-4"
           >
-            {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
-            ].map((social) => (
+            {socialLinks.map((social) => (
               <motion.a
                 key={social.label}
                 href={social.href}

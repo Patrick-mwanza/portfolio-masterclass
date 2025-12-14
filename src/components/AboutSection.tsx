@@ -1,18 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Download, MapPin, Briefcase, GraduationCap } from "lucide-react";
+import { useRef, useState } from "react";
+import { Download, MapPin, Briefcase, GraduationCap, ChevronDown, ChevronUp } from "lucide-react";
+import { personalInfo, aboutMe } from "@/data/portfolio";
 
 export function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const stats = [
-    { label: "Years Experience", value: "5+" },
-    { label: "Projects Completed", value: "50+" },
-    { label: "Happy Clients", value: "30+" },
-    { label: "Data Reports", value: "100+" },
-  ];
+  const [showFullBio, setShowFullBio] = useState(false);
 
   return (
     <section id="about" className="section-padding bg-secondary/30">
@@ -42,8 +37,8 @@ export function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
               <div className="relative glass-card p-4 rounded-3xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face"
-                  alt="Alex Chen - Developer"
+                  src={personalInfo.profileImage}
+                  alt={`${personalInfo.name} - ${personalInfo.title}`}
                   className="w-full aspect-square object-cover rounded-2xl"
                 />
               </div>
@@ -60,8 +55,8 @@ export function AboutSection() {
                     <Briefcase className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground">5+</p>
-                    <p className="text-sm text-muted-foreground">Years Exp.</p>
+                    <p className="text-2xl font-bold text-foreground">{aboutMe.stats[0].value}</p>
+                    <p className="text-sm text-muted-foreground">{aboutMe.stats[0].label}</p>
                   </div>
                 </div>
               </motion.div>
@@ -74,41 +69,75 @@ export function AboutSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-6">
               Passionate Developer & Data Enthusiast
             </h3>
             
-            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6">
-              I'm a full-stack developer and data analyst with a passion for creating elegant solutions 
-              to complex problems. With expertise in modern web technologies and data analytics, I bridge 
-              the gap between beautiful interfaces and meaningful insights.
-            </p>
+            {/* Extended Bio */}
+            <div className="space-y-4 mb-6">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                {aboutMe.paragraph1}
+              </p>
 
-            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">
-              My journey in tech started with curiosity about how things work, which evolved into 
-              a career building applications that make a difference. I believe in writing clean, 
-              maintainable code and presenting data in ways that drive decision-making.
-            </p>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                {aboutMe.paragraph2}
+              </p>
+
+              {/* Collapsible third paragraph for mobile */}
+              <div className="hidden md:block">
+                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                  {aboutMe.paragraph3}
+                </p>
+              </div>
+
+              {/* Mobile: Show/Hide toggle */}
+              <div className="md:hidden">
+                {showFullBio && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-muted-foreground text-base leading-relaxed"
+                  >
+                    {aboutMe.paragraph3}
+                  </motion.p>
+                )}
+                <button
+                  onClick={() => setShowFullBio(!showFullBio)}
+                  className="inline-flex items-center gap-1 text-primary font-medium text-sm mt-2 hover:underline"
+                >
+                  {showFullBio ? (
+                    <>
+                      Show less <ChevronUp className="h-4 w-4" />
+                    </>
+                  ) : (
+                    <>
+                      Read more <ChevronDown className="h-4 w-4" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
 
             {/* Info Items */}
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
               <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="h-5 w-5 text-primary" />
-                <span>San Francisco, CA</span>
+                <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                <span>{personalInfo.location}</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
-                <Briefcase className="h-5 w-5 text-primary" />
-                <span>Open to Remote Work</span>
+                <Briefcase className="h-5 w-5 text-primary flex-shrink-0" />
+                <span>{personalInfo.workPreference}</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
-                <GraduationCap className="h-5 w-5 text-primary" />
-                <span>BSc Computer Science</span>
+                <GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />
+                <span>{personalInfo.education}</span>
               </div>
             </div>
 
             {/* CTA Button */}
             <motion.a
-              href="/resume.pdf"
+              href={personalInfo.resumeUrl}
               download
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -127,7 +156,7 @@ export function AboutSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20"
         >
-          {stats.map((stat, index) => (
+          {aboutMe.stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}

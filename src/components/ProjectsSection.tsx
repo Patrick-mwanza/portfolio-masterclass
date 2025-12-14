@@ -2,69 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
-
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with cart, checkout, and payment integration. Built with modern web technologies for optimal performance.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-    tags: ["React", "Node.js", "Stripe", "MongoDB"],
-    category: "Full Stack",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 2,
-    title: "Analytics Dashboard",
-    description: "Interactive data visualization dashboard with real-time metrics, charts, and comprehensive reporting capabilities.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-    tags: ["React", "D3.js", "Python", "PostgreSQL"],
-    category: "Data Analysis",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 3,
-    title: "Portfolio Website",
-    description: "Modern, responsive portfolio website with smooth animations and optimized performance for showcasing work.",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    category: "Frontend",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 4,
-    title: "Sales Data Analysis",
-    description: "Comprehensive analysis of sales trends, customer behavior, and revenue forecasting using Python and visualization tools.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    tags: ["Python", "Pandas", "Matplotlib", "Tableau"],
-    category: "Data Analysis",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 5,
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates, team collaboration, and progress tracking.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop",
-    tags: ["React", "Firebase", "Tailwind CSS"],
-    category: "Full Stack",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 6,
-    title: "Weather Application",
-    description: "Beautiful weather app with location-based forecasts, interactive maps, and detailed meteorological data.",
-    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=500&fit=crop",
-    tags: ["React", "Weather API", "CSS3"],
-    category: "Frontend",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-];
+import { projects, contactInfo } from "@/data/portfolio";
 
 const categories = ["All", "Frontend", "Full Stack", "Data Analysis"];
 
@@ -139,6 +77,7 @@ export function ProjectsSection() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
@@ -151,6 +90,7 @@ export function ProjectsSection() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className="p-3 rounded-full bg-background/90 text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                      aria-label={`View ${project.title} on GitHub`}
                     >
                       <Github className="h-5 w-5" />
                     </motion.a>
@@ -161,6 +101,7 @@ export function ProjectsSection() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className="p-3 rounded-full bg-background/90 text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                      aria-label={`View ${project.title} live demo`}
                     >
                       <ExternalLink className="h-5 w-5" />
                     </motion.a>
@@ -204,7 +145,7 @@ export function ProjectsSection() {
           className="text-center mt-12"
         >
           <motion.a
-            href="https://github.com"
+            href={contactInfo.github}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}

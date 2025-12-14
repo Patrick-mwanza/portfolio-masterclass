@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { personalInfo } from "@/data/portfolio";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
+  { name: "Certifications", href: "#certifications" },
   { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -58,7 +58,7 @@ export function Navbar() {
           whileHover={{ scale: 1.02 }}
         >
           <span className="text-primary">&lt;</span>
-          Dev
+          {personalInfo.name.split(" ")[0]}
           <span className="text-primary">/&gt;</span>
         </motion.a>
 
