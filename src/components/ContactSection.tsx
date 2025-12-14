@@ -8,10 +8,12 @@ import {
   MapPin, 
   Github, 
   Linkedin, 
+  MessageCircle,
   CheckCircle,
   AlertCircle,
   Loader2
 } from "lucide-react";
+import { personalInfo, contactInfo } from "@/data/portfolio";
 
 export function ContactSection() {
   const ref = useRef(null);
@@ -22,14 +24,46 @@ export function ContactSection() {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  // Client-side validation
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formState.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formState.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+    
+    if (!formState.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) {
+      newErrors.email = "Please enter a valid email";
+    }
+    
+    if (!formState.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formState.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) return;
+    
     setStatus("loading");
 
     try {
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      // ← REPLACE "YOUR_FORM_ID" with your actual Formspree form ID
+      // Get your form ID at https://formspree.io
+      const response = await fetch(`https://formspree.io/f/${contactInfo.formspreeId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,6 +74,7 @@ export function ContactSection() {
       if (response.ok) {
         setStatus("success");
         setFormState({ name: "", email: "", message: "" });
+        setErrors({});
       } else {
         setStatus("error");
       }
@@ -49,21 +84,27 @@ export function ContactSection() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormState((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
-  const contactInfo = [
-    { icon: Mail, label: "Email", value: "hello@alexchen.dev", href: "mailto:hello@alexchen.dev" },
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: MapPin, label: "Location", value: "San Francisco, CA", href: "#" },
+  const contactDetails = [
+    { icon: Mail, label: "Email", value: contactInfo.email, href: `mailto:${contactInfo.email}` },
+    ...(contactInfo.phone ? [{ icon: Phone, label: "Phone", value: contactInfo.phone, href: `tel:${contactInfo.phone.replace(/\D/g, "")}` }] : []),
+    { icon: MapPin, label: "Location", value: personalInfo.location, href: "#" },
   ];
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Github, href: contactInfo.github, label: "GitHub" },
+    { icon: Linkedin, href: contactInfo.linkedin, label: "LinkedIn" },
+    ...(contactInfo.whatsapp ? [{ icon: MessageCircle, href: `https://wa.me/${contactInfo.whatsapp}`, label: "WhatsApp" }] : []),
   ];
 
   return (
@@ -98,7 +139,7 @@ export function ContactSection() {
                 Contact Information
               </h3>
               <div className="space-y-4">
-                {contactInfo.map((item) => (
+                {contactDetails.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
@@ -145,11 +186,11 @@ export function ContactSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="glass-card p-8 rounded-2xl space-y-6">
+            <form onSubmit={handleSubmit} className="glass-card p-8 rounded-2xl space-y-6" noValidate>
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Your Name
+                  Your Name <span className="text-destructive">*</span>
                 </label>
                 <input
                   type="text"
@@ -157,16 +198,24 @@ export function ContactSection() {
                   name="name"
                   value={formState.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  aria-describedby={errors.name ? "name-error" : undefined}
+                  aria-invalid={!!errors.name}
+                  className={`w-full px-4 py-3 rounded-xl bg-secondary/50 border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all ${
+                    errors.name ? "border-destructive" : "border-border"
+                  }`}
                   placeholder="John Doe"
                 />
+                {errors.name && (
+                  <p id="name-error" className="mt-1 text-sm text-destructive">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email Address
+                  Email Address <span className="text-destructive">*</span>
                 </label>
                 <input
                   type="email"
@@ -174,27 +223,43 @@ export function ContactSection() {
                   name="email"
                   value={formState.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  aria-describedby={errors.email ? "email-error" : undefined}
+                  aria-invalid={!!errors.email}
+                  className={`w-full px-4 py-3 rounded-xl bg-secondary/50 border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all ${
+                    errors.email ? "border-destructive" : "border-border"
+                  }`}
                   placeholder="john@example.com"
                 />
+                {errors.email && (
+                  <p id="email-error" className="mt-1 text-sm text-destructive">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               {/* Message Field */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Your Message
+                  Your Message <span className="text-destructive">*</span>
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formState.message}
                   onChange={handleChange}
-                  required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
+                  aria-describedby={errors.message ? "message-error" : undefined}
+                  aria-invalid={!!errors.message}
+                  className={`w-full px-4 py-3 rounded-xl bg-secondary/50 border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none ${
+                    errors.message ? "border-destructive" : "border-border"
+                  }`}
                   placeholder="Tell me about your project..."
                 />
+                {errors.message && (
+                  <p id="message-error" className="mt-1 text-sm text-destructive">
+                    {errors.message}
+                  </p>
+                )}
               </div>
 
               {/* Status Messages */}
@@ -203,8 +268,9 @@ export function ContactSection() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2 p-4 rounded-xl bg-green-500/10 text-green-600 dark:text-green-400"
+                  role="alert"
                 >
-                  <CheckCircle className="h-5 w-5" />
+                  <CheckCircle className="h-5 w-5 flex-shrink-0" />
                   <span>Message sent successfully! I'll get back to you soon.</span>
                 </motion.div>
               )}
@@ -213,9 +279,10 @@ export function ContactSection() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 p-4 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400"
+                  className="flex items-center gap-2 p-4 rounded-xl bg-destructive/10 text-destructive"
+                  role="alert"
                 >
-                  <AlertCircle className="h-5 w-5" />
+                  <AlertCircle className="h-5 w-5 flex-shrink-0" />
                   <span>Something went wrong. Please try again or email me directly.</span>
                 </motion.div>
               )}
