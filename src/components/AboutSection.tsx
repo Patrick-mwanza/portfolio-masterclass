@@ -70,7 +70,7 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-6">
-              Passionate Developer & Data Enthusiast
+              Passionate Developer
             </h3>
             
             {/* Extended Bio */}

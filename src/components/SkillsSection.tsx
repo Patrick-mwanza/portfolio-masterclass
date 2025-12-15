@@ -14,19 +14,15 @@ import { skills } from "@/data/portfolio";
 const iconMap = {
   frontend: Code2,
   backend: Server,
-  dataAnalysis: BarChart3,
   databases: Database,
   tools: Wrench,
-  additional: Layers,
 };
 
 const colorMap = {
   frontend: "from-blue-500 to-cyan-500",
   backend: "from-purple-500 to-pink-500",
-  dataAnalysis: "from-green-500 to-emerald-500",
   databases: "from-orange-500 to-red-500",
   tools: "from-teal-500 to-cyan-500",
-  additional: "from-indigo-500 to-purple-500",
 };
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
@@ -78,7 +74,7 @@ export function SkillsSection() {
             Skills & Technologies
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            A comprehensive toolkit spanning frontend development, backend systems, and data analytics
+            A comprehensive toolkit spanning frontend development, backend systems, and modern tools
           </p>
         </motion.div>
 

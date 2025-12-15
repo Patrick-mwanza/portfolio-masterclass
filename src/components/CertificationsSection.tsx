@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Award, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { certifications } from "@/data/portfolio";
 
-const categories = ["All", "Software Development", "Data Analysis", "Cloud / DevOps", "Professional Skills"];
+const categories = ["All", "Software Development", "Professional Skills"];
 
 export function CertificationsSection() {
   const ref = useRef(null);
@@ -24,10 +24,6 @@ export function CertificationsSection() {
     switch (category) {
       case "Software Development":
         return "from-blue-500 to-cyan-500";
-      case "Data Analysis":
-        return "from-green-500 to-emerald-500";
-      case "Cloud / DevOps":
-        return "from-orange-500 to-red-500";
       case "Professional Skills":
         return "from-purple-500 to-pink-500";
       default:
@@ -50,7 +46,7 @@ export function CertificationsSection() {
             Certifications
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Professional certifications demonstrating expertise in software development, data analysis, and more
+            Professional certifications demonstrating expertise in software development
           </p>
         </motion.div>
 

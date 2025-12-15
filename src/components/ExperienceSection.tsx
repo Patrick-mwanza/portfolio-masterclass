@@ -3,40 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { Briefcase, GraduationCap, Award } from "lucide-react";
 
-const experiences = [
-  {
-    type: "work",
-    title: "Senior Full-Stack Developer",
-    company: "TechCorp Inc.",
-    period: "2022 - Present",
-    description: "Lead development of enterprise applications, mentoring junior developers, and implementing best practices.",
-    skills: ["React", "Node.js", "AWS", "PostgreSQL"],
-  },
-  {
-    type: "work",
-    title: "Data Analyst",
-    company: "DataInsights Co.",
-    period: "2020 - 2022",
-    description: "Analyzed business data to drive strategic decisions, created dashboards, and automated reporting processes.",
-    skills: ["Python", "SQL", "Tableau", "Power BI"],
-  },
-  {
-    type: "education",
-    title: "BSc Computer Science",
-    company: "University of Technology",
-    period: "2016 - 2020",
-    description: "Graduated with honors. Focus on software engineering and data science fundamentals.",
-    skills: ["Algorithms", "Data Structures", "Machine Learning"],
-  },
-  {
-    type: "certification",
-    title: "AWS Certified Developer",
-    company: "Amazon Web Services",
-    period: "2023",
-    description: "Professional certification demonstrating expertise in developing and maintaining AWS applications.",
-    skills: ["Cloud Computing", "DevOps", "Serverless"],
-  },
-];
+import { experience as experiences } from "@/data/portfolio";
 
 const iconMap = {
   work: Briefcase,
