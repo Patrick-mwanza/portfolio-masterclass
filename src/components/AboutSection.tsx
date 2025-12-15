@@ -138,13 +138,14 @@ export function AboutSection() {
             {/* CTA Button */}
             <motion.a
               href={personalInfo.resumeUrl}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
             >
               <Download className="h-5 w-5" />
-              Download Resume
+              View Resume
             </motion.a>
           </motion.div>
         </div>

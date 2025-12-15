@@ -1,6 +1,8 @@
 // ============================================================
-// PORTFOLIO DATA - Edit this file to personalize your portfolio
+// PORTFOLIO DATA - Patrick Mwanza's Portfolio
 // ============================================================
+
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 // Personal Information
 export const personalInfo = {
@@ -9,10 +11,10 @@ export const personalInfo = {
   tagline: "Building scalable, user-focused web applications with clean code and modern technologies.",
   location: "Nairobi, Kenya",
   workPreference: "Remote / On-site",
-  education: "Computer Science Background",
+  education: "Full-Stack Development (MERN Stack)",
   openToWork: true,
-  profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-  resumeUrl: "/resume.pdf",
+  profileImage: profilePhoto,
+  resumeUrl: "https://docs.google.com/document/d/1k-SduGeMgPSHbZDZtukziUxgsLOHOSh-/edit?usp=drive_link&ouid=114865878550150048207&rtpof=true&sd=true",
 };
 
 // Contact Information
@@ -20,7 +22,7 @@ export const contactInfo = {
   email: "munyaopatrick002@gmail.com",
   phone: "+254798109651",
   github: "https://github.com/Patrick-mwanza",
-  linkedin: "https://www.linkedin.com/in/patrick-mwanza",
+  linkedin: "https://www.linkedin.com/in/patrick-mwanza/",
   whatsapp: "254798109651",
   formspreeId: "xyzragad",
 };
@@ -82,111 +84,70 @@ export const skills = {
   },
 };
 
-// Projects
+// Projects - Patrick's actual projects
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with cart functionality, payment integration, and responsive design.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    title: "Tabia Zetu",
+    description: "A digital tool that helps teachers track and analyze student behavior over time. It automates behavior logging, visualizes trends, generates reports, and provides rules-based suggestions to improve classroom strategies. Supports CBC and 8-4-4 systems.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop",
+    tags: ["React", "Education", "Analytics", "Dashboard"],
     category: "Full Stack",
-    github: "https://github.com/Patrick-mwanza",
-    demo: "#",
+    github: "https://github.com/iamiancliff/tabia-zetu",
+    demo: "https://tabia-zetu.vercel.app/",
   },
   {
     id: 2,
-    title: "Portfolio Website",
-    description: "Modern, responsive portfolio with dark/light mode, animations, and contact form integration.",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    title: "Allsolves Company",
+    description: "A travel and hiking platform for adventure enthusiasts, offering destination discovery, trail exploration, trip planning guides, safety tips, and local attraction insights.",
+    image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop",
+    tags: ["HTML", "CSS", "JavaScript", "Travel"],
     category: "Frontend",
-    github: "https://github.com/Patrick-mwanza",
-    demo: "#",
+    github: "https://github.com/Patrick-mwanza/allsolves-company-project",
+    demo: "https://patrick-mwanza.github.io/allsolves-company-project/",
   },
   {
     id: 3,
-    title: "Task Management App",
-    description: "Collaborative task manager with real-time updates, drag-and-drop, and team features.",
-    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=600&fit=crop",
-    tags: ["Next.js", "PostgreSQL", "Prisma"],
+    title: "COVID-19 Data Tracker",
+    description: "A project analyzing global COVID-19 vaccination progress, cases, and deaths using real-world data, with visualizations and trend interpretation.",
+    image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&h=600&fit=crop",
+    tags: ["Python", "Data Analysis", "Visualization"],
     category: "Full Stack",
-    github: "https://github.com/Patrick-mwanza",
-    demo: "#",
+    github: "https://github.com/Patrick-mwanza/covid-19-analysis-project",
+    demo: "https://hub.2i2c.mybinder.org/user/patrick-mwanza--nalysis-project-sxqcacqe/doc/tree/covid%2019%20datatracker.pdf",
   },
   {
     id: 4,
-    title: "Weather Dashboard",
-    description: "Real-time weather app with location detection, forecasts, and beautiful UI animations.",
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
-    tags: ["React", "OpenWeather API", "CSS3"],
-    category: "Frontend",
-    github: "https://github.com/Patrick-mwanza",
-    demo: "#",
+    title: "Clinic Alert System",
+    description: "A healthcare reminder system that automates follow-up management for healthcare providers.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
+    tags: ["React", "Healthcare", "Automation"],
+    category: "Full Stack",
+    github: "https://github.com/Patrick-mwanza/clinic-alert-system-19.git",
+    demo: "https://clinic-alert-system-19.lovable.app/",
   },
   {
     id: 5,
-    title: "Blog Platform",
-    description: "Full-featured blog with markdown support, categories, and admin dashboard.",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop",
-    tags: ["Next.js", "MDX", "Tailwind"],
-    category: "Full Stack",
-    github: "https://github.com/Patrick-mwanza",
-    demo: "#",
-  },
-  {
-    id: 6,
-    title: "Landing Page Template",
-    description: "Conversion-optimized landing page with smooth animations and mobile-first design.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    tags: ["HTML5", "CSS3", "JavaScript"],
+    title: "Portfolio Website (Client Project)",
+    description: "A professional portfolio website built for a client to showcase projects, skills, and achievements using an interactive and visually engaging design.",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+    tags: ["HTML", "CSS", "JavaScript", "Portfolio"],
     category: "Frontend",
-    github: "https://github.com/Patrick-mwanza",
-    demo: "#",
+    github: "https://github.com/Kibirisman/group-portfolio-project.git",
+    demo: "https://kibirisman.github.io/group-portfolio-project/",
   },
 ];
 
-// Certifications
+// Certifications - Patrick's actual certification
 export const certifications = [
   {
     id: 1,
-    title: "React Developer Certification",
-    issuer: "Meta (Facebook)",
-    year: "2024",
+    title: "Full-Stack Development (MERN Stack)",
+    issuer: "Power Learn Project",
+    year: "2025",
     category: "Software Development",
-    credentialUrl: "#",
-  },
-  {
-    id: 2,
-    title: "JavaScript Algorithms",
-    issuer: "freeCodeCamp",
-    year: "2023",
-    category: "Software Development",
-    credentialUrl: "#",
-  },
-  {
-    id: 3,
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    year: "2023",
-    category: "Software Development",
-    credentialUrl: "#",
-  },
-  {
-    id: 4,
-    title: "Git & GitHub Fundamentals",
-    issuer: "Coursera",
-    year: "2023",
-    category: "Professional Skills",
-    credentialUrl: "#",
-  },
-  {
-    id: 5,
-    title: "Node.js Development",
-    issuer: "Udemy",
-    year: "2024",
-    category: "Software Development",
-    credentialUrl: "#",
+    credentialUrl: "https://drive.google.com/file/d/15n53KTnNDCYlZzYGs-5VP0eE1L3QNskN/view?usp=sharing",
+    note: "Verification available via QR code on certificate",
   },
 ];
 
@@ -202,11 +163,11 @@ export const experience = [
   },
   {
     type: "education",
-    title: "BSc Computer Science",
-    company: "University",
-    period: "2020 - 2024",
-    description: "Studied software engineering fundamentals, algorithms, data structures, and web development.",
-    skills: ["Programming", "Algorithms", "Web Development"],
+    title: "Full-Stack Development (MERN Stack)",
+    company: "Power Learn Project",
+    period: "2024 - 2025",
+    description: "Completed comprehensive training in MongoDB, Express.js, React, and Node.js development.",
+    skills: ["MongoDB", "Express.js", "React", "Node.js"],
   },
 ];
 
