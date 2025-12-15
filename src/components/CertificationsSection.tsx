@@ -116,9 +116,12 @@ export function CertificationsSection() {
                 )}
               </div>
 
-              {/* Category Badge */}
+              {/* Category Badge & Note */}
               <div className="mt-4 pt-4 border-t border-border">
                 <span className="text-xs text-muted-foreground">{cert.category}</span>
+                {cert.note && (
+                  <p className="text-xs text-muted-foreground/70 mt-2 italic">{cert.note}</p>
+                )}
               </div>
             </motion.div>
           ))}
