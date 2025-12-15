@@ -4,7 +4,7 @@ import { useInView } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { projects, contactInfo } from "@/data/portfolio";
 
-const categories = ["All", "Frontend", "Full Stack", "Data Analysis"];
+const categories = ["All", "Frontend", "Full Stack"];
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -30,7 +30,7 @@ export function ProjectsSection() {
             Featured Projects
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            A selection of my work showcasing web development and data analysis projects
+            A selection of my work showcasing web development projects
           </p>
         </motion.div>
 

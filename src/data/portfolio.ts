@@ -1,310 +1,216 @@
-// ==========================================
-// PORTFOLIO DATA - EDIT YOUR INFORMATION HERE
-// ==========================================
+// ============================================================
+// PORTFOLIO DATA - Edit this file to personalize your portfolio
+// ============================================================
 
-// ====================
-// PERSONAL INFORMATION
-// ====================
+// Personal Information
 export const personalInfo = {
-  // Basic Info
-  name: "Your Name",                          // ← REPLACE: Your full name
-  title: "Full-Stack Developer & Data Analyst", // ← REPLACE: Your professional title
-  tagline: "Crafting beautiful, performant web experiences and turning data into actionable insights.",
-  
-  // Location & Status
-  location: "Your City, Country",             // ← REPLACE: Your location
+  name: "Patrick Mwanza",
+  title: "Developer",
+  tagline: "Building scalable, user-focused web applications with clean code and modern technologies.",
+  location: "Nairobi, Kenya",
+  workPreference: "Remote / On-site",
+  education: "Computer Science Background",
   openToWork: true,
-  workPreference: "Open to Remote Work",      // ← REPLACE: "Remote", "Hybrid", "On-site"
-  
-  // Education
-  education: "BSc Computer Science",          // ← REPLACE: Your degree
-  
-  // Profile Image - Replace with your photo URL or local path
-  profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face",
-  
-  // Resume/CV - Place your resume in the public folder
-  resumeUrl: "/resume.pdf",                   // ← REPLACE: Path to your resume
+  profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+  resumeUrl: "/resume.pdf",
 };
 
-// ====================
-// CONTACT INFORMATION
-// ====================
+// Contact Information
 export const contactInfo = {
-  email: "your.email@example.com",            // ← REPLACE: Your email
-  phone: "+1 (555) 123-4567",                 // ← REPLACE: Your phone (optional)
-  whatsapp: "",                               // ← REPLACE: WhatsApp number (optional)
-  
-  // Social Links - Replace with your actual profiles
-  github: "https://github.com/yourusername",  // ← REPLACE
-  linkedin: "https://linkedin.com/in/yourprofile", // ← REPLACE
-  
-  // Formspree Form ID - Get yours at https://formspree.io
-  formspreeId: "YOUR_FORM_ID",                // ← REPLACE: Your Formspree form ID
+  email: "munyaopatrick002@gmail.com",
+  phone: "+254798109651",
+  github: "https://github.com/Patrick-mwanza",
+  linkedin: "https://www.linkedin.com/in/patrick-mwanza",
+  whatsapp: "254798109651",
+  formspreeId: "YOUR_FORM_ID", // ← REPLACE with your Formspree form ID from https://formspree.io
 };
 
-// ====================
-// ABOUT ME - EXTENDED
-// ====================
+// About Me Content
 export const aboutMe = {
-  // Paragraph 1: Professional background and current focus
-  paragraph1: `I'm a dedicated full-stack developer and data analyst with a passion for creating elegant 
-  solutions to complex problems. With expertise in modern web technologies and data analytics, I bridge 
-  the gap between beautiful user interfaces and meaningful data-driven insights. My approach combines 
-  technical excellence with creative problem-solving to deliver solutions that make a real impact.`,
+  paragraph1: `I'm Patrick Mwanza, a passionate developer with expertise in building robust, scalable web applications. My journey in tech started with a deep curiosity about how software can solve real-world problems, and that curiosity has evolved into a dedicated career crafting digital solutions that make a difference.`,
   
-  // Paragraph 2: Core strengths and experience
-  paragraph2: `My journey in tech started with curiosity about how things work, which evolved into a career 
-  building applications that matter. I specialize in React, TypeScript, and Python, using these technologies 
-  to craft responsive web applications and extract valuable insights from complex datasets. I believe in 
-  writing clean, maintainable code and presenting data in ways that drive informed decision-making.`,
+  paragraph2: `With strong proficiency in frontend technologies like React and Next.js, as well as backend development with Node.js and databases, I bring a full-stack perspective to every project. I believe in writing clean, maintainable code and following best practices that ensure long-term project success.`,
   
-  // Paragraph 3: Career goals and what you're looking for
-  paragraph3: `I'm passionate about joining innovative teams where I can contribute to meaningful projects 
-  while continuing to grow professionally. Whether it's building scalable web applications, creating 
-  interactive dashboards, or uncovering insights hidden in data, I'm always excited to take on new 
-  challenges. I'm particularly interested in roles that combine software development with data analysis, 
-  allowing me to leverage my full range of skills.`,
+  paragraph3: `I'm actively seeking opportunities to collaborate on innovative projects, contribute to dynamic development teams, and continue growing as a software professional. Whether it's building responsive user interfaces, architecting robust APIs, or optimizing application performance, I'm committed to delivering excellence in every line of code.`,
   
-  // Stats - Update with your actual numbers
   stats: [
-    { label: "Years Experience", value: "5+" },   // ← REPLACE
-    { label: "Projects Completed", value: "50+" }, // ← REPLACE
-    { label: "Happy Clients", value: "30+" },     // ← REPLACE
-    { label: "Data Reports", value: "100+" },     // ← REPLACE
+    { value: "2+", label: "Years Experience" },
+    { value: "15+", label: "Projects Completed" },
+    { value: "10+", label: "Technologies" },
+    { value: "100%", label: "Client Satisfaction" },
   ],
 };
 
-// ====================
-// SKILLS
-// ====================
+// Skills - Developer focused
 export const skills = {
   frontend: {
     title: "Frontend Development",
     skills: [
       { name: "HTML5 & CSS3", level: 95 },
       { name: "JavaScript (ES6+)", level: 90 },
-      { name: "React & Next.js", level: 88 },
-      { name: "Tailwind CSS", level: 92 },
-      { name: "TypeScript", level: 85 },
+      { name: "React.js", level: 88 },
+      { name: "Next.js", level: 82 },
+      { name: "Tailwind CSS", level: 90 },
     ],
   },
   backend: {
     title: "Backend & APIs",
     skills: [
-      { name: "REST APIs", level: 88 },
-      { name: "Node.js", level: 82 },
-      { name: "Authentication", level: 85 },
-      { name: "API Integration", level: 90 },
-      { name: "Formspree", level: 95 },
-    ],
-  },
-  dataAnalysis: {
-    title: "Data Analysis",
-    skills: [
-      { name: "Python", level: 88 },
-      { name: "Pandas & NumPy", level: 85 },
-      { name: "Data Visualization", level: 90 },
-      { name: "SQL Queries", level: 87 },
-      { name: "Power BI / Tableau", level: 80 },
+      { name: "Node.js", level: 80 },
+      { name: "Express.js", level: 78 },
+      { name: "REST APIs", level: 85 },
+      { name: "Authentication", level: 75 },
     ],
   },
   databases: {
     title: "Databases",
     skills: [
-      { name: "PostgreSQL", level: 85 },
-      { name: "MySQL", level: 88 },
-      { name: "MongoDB", level: 80 },
-      { name: "SQLite", level: 90 },
-      { name: "Database Design", level: 82 },
+      { name: "MySQL", level: 80 },
+      { name: "PostgreSQL", level: 75 },
+      { name: "MongoDB", level: 70 },
+      { name: "SQLite", level: 72 },
     ],
   },
   tools: {
     title: "Tools & DevOps",
     skills: [
-      { name: "Git & GitHub", level: 92 },
+      { name: "Git & GitHub", level: 90 },
       { name: "VS Code", level: 95 },
-      { name: "Vercel Deployment", level: 90 },
-      { name: "CI/CD Basics", level: 78 },
-      { name: "Docker", level: 70 },
-    ],
-  },
-  additional: {
-    title: "Additional Skills",
-    skills: [
-      { name: "Responsive Design", level: 95 },
-      { name: "UI/UX Principles", level: 85 },
-      { name: "Performance Optimization", level: 82 },
-      { name: "SEO Best Practices", level: 80 },
-      { name: "Agile/Scrum", level: 85 },
+      { name: "Vercel", level: 85 },
+      { name: "Docker", level: 65 },
     ],
   },
 };
 
-// ====================
-// PROJECTS
-// ====================
+// Projects
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",                // ← REPLACE
-    description: "A full-featured online store with cart, checkout, and payment integration. Built with modern web technologies for optimal performance.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-    tags: ["React", "Node.js", "Stripe", "MongoDB"],
+    title: "E-Commerce Platform",
+    description: "A full-featured online store with cart functionality, payment integration, and responsive design.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+    tags: ["React", "Node.js", "MongoDB", "Stripe"],
     category: "Full Stack",
-    github: "https://github.com",                // ← REPLACE
-    demo: "https://demo.com",                    // ← REPLACE
+    github: "https://github.com/Patrick-mwanza",
+    demo: "#",
   },
   {
     id: 2,
-    title: "Analytics Dashboard",
-    description: "Interactive data visualization dashboard with real-time metrics, charts, and comprehensive reporting capabilities.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-    tags: ["React", "D3.js", "Python", "PostgreSQL"],
-    category: "Data Analysis",
-    github: "https://github.com",
-    demo: "https://demo.com",
+    title: "Portfolio Website",
+    description: "Modern, responsive portfolio with dark/light mode, animations, and contact form integration.",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    category: "Frontend",
+    github: "https://github.com/Patrick-mwanza",
+    demo: "#",
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    description: "Modern, responsive portfolio website with smooth animations and optimized performance for showcasing work.",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    category: "Frontend",
-    github: "https://github.com",
-    demo: "https://demo.com",
+    title: "Task Management App",
+    description: "Collaborative task manager with real-time updates, drag-and-drop, and team features.",
+    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=600&fit=crop",
+    tags: ["Next.js", "PostgreSQL", "Prisma"],
+    category: "Full Stack",
+    github: "https://github.com/Patrick-mwanza",
+    demo: "#",
   },
   {
     id: 4,
-    title: "Sales Data Analysis",
-    description: "Comprehensive analysis of sales trends, customer behavior, and revenue forecasting using Python and visualization tools.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    tags: ["Python", "Pandas", "Matplotlib", "Tableau"],
-    category: "Data Analysis",
-    github: "https://github.com",
-    demo: "https://demo.com",
+    title: "Weather Dashboard",
+    description: "Real-time weather app with location detection, forecasts, and beautiful UI animations.",
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
+    tags: ["React", "OpenWeather API", "CSS3"],
+    category: "Frontend",
+    github: "https://github.com/Patrick-mwanza",
+    demo: "#",
   },
   {
     id: 5,
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates, team collaboration, and progress tracking.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop",
-    tags: ["React", "Firebase", "Tailwind CSS"],
+    title: "Blog Platform",
+    description: "Full-featured blog with markdown support, categories, and admin dashboard.",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop",
+    tags: ["Next.js", "MDX", "Tailwind"],
     category: "Full Stack",
-    github: "https://github.com",
-    demo: "https://demo.com",
+    github: "https://github.com/Patrick-mwanza",
+    demo: "#",
   },
   {
     id: 6,
-    title: "Weather Application",
-    description: "Beautiful weather app with location-based forecasts, interactive maps, and detailed meteorological data.",
-    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=500&fit=crop",
-    tags: ["React", "Weather API", "CSS3"],
+    title: "Landing Page Template",
+    description: "Conversion-optimized landing page with smooth animations and mobile-first design.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    tags: ["HTML5", "CSS3", "JavaScript"],
     category: "Frontend",
-    github: "https://github.com",
-    demo: "https://demo.com",
+    github: "https://github.com/Patrick-mwanza",
+    demo: "#",
   },
 ];
 
-// ====================
-// CERTIFICATIONS
-// ====================
+// Certifications
 export const certifications = [
   {
     id: 1,
-    title: "AWS Certified Developer",           // ← REPLACE
-    issuer: "Amazon Web Services",              // ← REPLACE
-    year: "2024",                               // ← REPLACE
-    category: "Cloud / DevOps",
-    credentialUrl: "https://aws.amazon.com",    // ← REPLACE (optional)
+    title: "React Developer Certification",
+    issuer: "Meta (Facebook)",
+    year: "2024",
+    category: "Software Development",
+    credentialUrl: "#",
   },
   {
     id: 2,
-    title: "Google Data Analytics Professional",
-    issuer: "Google",
+    title: "JavaScript Algorithms",
+    issuer: "freeCodeCamp",
     year: "2023",
-    category: "Data Analysis",
-    credentialUrl: "https://coursera.org",
+    category: "Software Development",
+    credentialUrl: "#",
   },
   {
     id: 3,
-    title: "React Developer Certificate",
-    issuer: "Meta",
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
     year: "2023",
     category: "Software Development",
-    credentialUrl: "https://coursera.org",
+    credentialUrl: "#",
   },
   {
     id: 4,
-    title: "Python for Data Science",
-    issuer: "IBM",
-    year: "2022",
-    category: "Data Analysis",
-    credentialUrl: "https://coursera.org",
+    title: "Git & GitHub Fundamentals",
+    issuer: "Coursera",
+    year: "2023",
+    category: "Professional Skills",
+    credentialUrl: "#",
   },
   {
     id: 5,
-    title: "Professional Scrum Master I",
-    issuer: "Scrum.org",
-    year: "2022",
-    category: "Professional Skills",
-    credentialUrl: "https://scrum.org",
-  },
-  {
-    id: 6,
-    title: "MongoDB Developer Certificate",
-    issuer: "MongoDB University",
-    year: "2021",
+    title: "Node.js Development",
+    issuer: "Udemy",
+    year: "2024",
     category: "Software Development",
-    credentialUrl: "https://university.mongodb.com",
+    credentialUrl: "#",
   },
 ];
 
-// ====================
-// EXPERIENCE
-// ====================
-export const experiences = [
+// Experience
+export const experience = [
   {
-    id: 1,
-    role: "Senior Developer",                   // ← REPLACE
-    company: "Tech Company",                    // ← REPLACE
-    period: "2022 - Present",                   // ← REPLACE
-    description: "Lead development of web applications and data solutions. Mentor junior developers and implement best practices.",
-    achievements: [
-      "Led a team of 5 developers",
-      "Increased app performance by 40%",
-      "Implemented CI/CD pipelines",
-    ],
+    type: "work",
+    title: "Web Developer",
+    company: "Freelance",
+    period: "2023 - Present",
+    description: "Building custom websites and web applications for clients. Specializing in React and modern frontend technologies.",
+    skills: ["React", "Next.js", "Tailwind CSS", "Node.js"],
   },
   {
-    id: 2,
-    role: "Full-Stack Developer",
-    company: "Digital Agency",
-    period: "2020 - 2022",
-    description: "Built responsive web applications and integrated analytics solutions for various clients.",
-    achievements: [
-      "Delivered 20+ client projects",
-      "Reduced load times by 60%",
-      "Built custom analytics dashboards",
-    ],
-  },
-  {
-    id: 3,
-    role: "Junior Developer",
-    company: "Startup Inc",
-    period: "2019 - 2020",
-    description: "Developed frontend features and learned backend technologies. Contributed to data analysis projects.",
-    achievements: [
-      "Learned React and Node.js",
-      "Built 10+ responsive pages",
-      "Assisted with data reporting",
-    ],
+    type: "education",
+    title: "BSc Computer Science",
+    company: "University",
+    period: "2020 - 2024",
+    description: "Studied software engineering fundamentals, algorithms, data structures, and web development.",
+    skills: ["Programming", "Algorithms", "Web Development"],
   },
 ];
 
-// ====================
-// SERVICES
-// ====================
+// Services
 export const services = [
   {
     id: 1,
@@ -314,9 +220,9 @@ export const services = [
   },
   {
     id: 2,
-    title: "Data Analysis",
-    description: "Transforming raw data into actionable insights through analysis, visualization, and comprehensive reporting.",
-    icon: "chart",
+    title: "Frontend Development",
+    description: "Creating beautiful, responsive user interfaces with modern frameworks and design best practices.",
+    icon: "layout",
   },
   {
     id: 3,
@@ -327,7 +233,7 @@ export const services = [
   {
     id: 4,
     title: "Consulting",
-    description: "Technical consulting for startups and businesses looking to improve their digital presence and data strategy.",
+    description: "Technical consulting for startups and businesses looking to improve their digital presence.",
     icon: "users",
   },
 ];
