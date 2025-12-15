@@ -22,7 +22,7 @@ export const contactInfo = {
   github: "https://github.com/Patrick-mwanza",
   linkedin: "https://www.linkedin.com/in/patrick-mwanza",
   whatsapp: "254798109651",
-  formspreeId: "YOUR_FORM_ID", // ← REPLACE with your Formspree form ID from https://formspree.io
+  formspreeId: "xyzragad",
 };
 
 // About Me Content
