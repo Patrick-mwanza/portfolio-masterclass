@@ -203,7 +203,7 @@ export function ContactSection() {
                   className={`w-full px-4 py-3 rounded-xl bg-secondary/50 border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all ${
                     errors.name ? "border-destructive" : "border-border"
                   }`}
-                  placeholder="John Doe"
+                  placeholder="fullname"
                 />
                 {errors.name && (
                   <p id="name-error" className="mt-1 text-sm text-destructive">
@@ -228,7 +228,7 @@ export function ContactSection() {
                   className={`w-full px-4 py-3 rounded-xl bg-secondary/50 border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all ${
                     errors.email ? "border-destructive" : "border-border"
                   }`}
-                  placeholder="john@example.com"
+                  placeholder="email@me.com"
                 />
                 {errors.email && (
                   <p id="email-error" className="mt-1 text-sm text-destructive">
