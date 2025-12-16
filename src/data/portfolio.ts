@@ -114,7 +114,7 @@ export const projects = [
     tags: ["Python", "Data Analysis", "Visualization"],
     category: "Full Stack",
     github: "https://github.com/Patrick-mwanza/covid-19-analysis-project",
-    demo: "https://hub.2i2c.mybinder.org/user/patrick-mwanza--nalysis-project-sxqcacqe/doc/tree/covid%2019%20datatracker.pdf",
+    demo: "https://drive.google.com/file/d/1In04fatJ7pJpFxqoZarbvH_cLxCuMkIH/view?usp=drive_link",
   },
   {
     id: 4,
@@ -153,6 +153,14 @@ export const certifications = [
 
 // Experience
 export const experience = [
+  {
+    type: "education",
+    title: "Bachelor of Science in Information Technology",
+    company: "Murang'a University of Technology",
+    period: "2022 - Present",
+    description: "Currently pursuing a degree in Information Technology with a focus on software development, systems analysis, and modern web technologies.",
+    skills: ["Software Development", "Web Technologies", "Database Management", "Systems Analysis"],
+  },
   {
     type: "work",
     title: "Web Developer",
