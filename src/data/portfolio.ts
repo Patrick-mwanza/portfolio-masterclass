@@ -170,12 +170,53 @@ export const experience = [
     skills: ["React", "Next.js", "Tailwind CSS", "Node.js"],
   },
   {
+    type: "work",
+    title: "Frontend Developer Intern",
+    company: "Power Learn Project",
+    period: "2024 - 2025",
+    description: "Collaborated on real-world projects, building responsive user interfaces and implementing modern frontend solutions.",
+    skills: ["React", "JavaScript", "CSS", "Git"],
+  },
+  {
+    type: "work",
+    title: "Technical Support & Web Assistant",
+    company: "Various Clients",
+    period: "2022 - 2023",
+    description: "Provided technical support and assisted with website maintenance, content updates, and basic troubleshooting for small businesses.",
+    skills: ["HTML", "CSS", "WordPress", "Customer Support"],
+  },
+  {
     type: "education",
     title: "Full-Stack Development (MERN Stack)",
     company: "Power Learn Project",
     period: "2024 - 2025",
     description: "Completed comprehensive training in MongoDB, Express.js, React, and Node.js development.",
     skills: ["MongoDB", "Express.js", "React", "Node.js"],
+  },
+];
+
+// Testimonials
+export const testimonials = [
+  {
+    id: 1,
+    name: "Ian Cliff",
+    role: "Project Lead, Tabia Zetu",
+    content: "Patrick is an exceptional developer who delivered our education platform on time and with great attention to detail. His React skills and problem-solving abilities made the collaboration seamless.",
+    avatar: "IC",
+  },
+  {
+    id: 2,
+    name: "James Kibiris",
+    role: "Client, Portfolio Project",
+    content: "Working with Patrick was a great experience. He understood my vision and created a stunning portfolio website that truly represents my brand. Highly recommended!",
+    avatar: "JK",
+  },
+  {
+    id: 3,
+    name: "Sarah Wanjiku",
+    role: "Startup Founder",
+    content: "Patrick's technical expertise and professionalism exceeded our expectations. He built a robust clinic management system that has streamlined our operations significantly.",
+    avatar: "SW",
   },
 ];
 
