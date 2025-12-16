@@ -90,7 +90,7 @@ export const projects = [
     id: 1,
     title: "Tabia Zetu",
     description: "A digital tool that helps teachers track and analyze student behavior over time. It automates behavior logging, visualizes trends, generates reports, and provides rules-based suggestions to improve classroom strategies. Supports CBC and 8-4-4 systems.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop",
+    image: "/tabia-zetu-cover.png",
     tags: ["React", "Education", "Analytics", "Dashboard"],
     category: "Full Stack",
     github: "https://github.com/iamiancliff/tabia-zetu",
