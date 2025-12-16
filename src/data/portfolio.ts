@@ -155,9 +155,9 @@ export const certifications = [
 export const experience = [
   {
     type: "education",
-    title: "Bachelor of Science in Information Technology",
+    title: "Bachelor of Science in Information Technology with Development",
     company: "Murang'a University of Technology",
-    period: "2022 - Present",
+    period: "2023 - Present",
     description: "Currently pursuing a degree in Information Technology with a focus on software development, systems analysis, and modern web technologies.",
     skills: ["Software Development", "Web Technologies", "Database Management", "Systems Analysis"],
   },
